@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "words",
+  "info": {
+    "singularName": "word",
+    "pluralName": "words",
+    "displayName": "Word",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "string"
+    },
+    "meaning": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "n",
+        "v",
+        "adj",
+        "adv",
+        "conj",
+        "pron",
+        "interj",
+        "prep"
+      ],
+      "required": true
+    },
+    "ipa": {
+      "type": "string"
+    },
+    "pronunciation": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "examples": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::example.example"
+    },
+    "user_words": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-word.user-word",
+      "mappedBy": "word"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "word_collections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::word-collection.word-collection",
+      "inversedBy": "words"
+    }
+  }
+}

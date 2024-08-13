@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "toiec_topics",
+  "info": {
+    "singularName": "toiec-topic",
+    "pluralName": "toiec-topics",
+    "displayName": "ToeicTopic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "isCharging": {
+      "type": "boolean"
+    },
+    "imageLink": {
+      "type": "string"
+    },
+    "words": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::word.word"
+    }
+  }
+}

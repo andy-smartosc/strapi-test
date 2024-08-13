@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_words",
+  "info": {
+    "singularName": "user-word",
+    "pluralName": "user-words",
+    "displayName": "UserWord",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "word": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::word.word",
+      "inversedBy": "user_words"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_words"
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    }
+  }
+}
