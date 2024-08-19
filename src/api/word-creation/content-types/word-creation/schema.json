@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "word_creations",
+  "info": {
+    "singularName": "word-creation",
+    "pluralName": "word-creations",
+    "displayName": "WordCreation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "meaning": {
+      "type": "string",
+      "required": true
+    },
+    "ipa": {
+      "type": "string",
+      "required": false
+    },
+    "examples": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::example.example"
+    },
+    "description": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "n",
+        "v",
+        "adj",
+        "adv",
+        "conj",
+        "pron",
+        "interj",
+        "prep"
+      ],
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "word_collection": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::word-collection.word-collection",
+      "inversedBy": "word_creations"
+    }
+  }
+}

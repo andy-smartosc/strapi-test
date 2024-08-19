@@ -1008,6 +1008,11 @@ export interface ApiWordCollectionWordCollection extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     type: Attribute.Enumeration<['db', 'se']> & Attribute.Required;
+    word_creations: Attribute.Relation<
+      'api::word-collection.word-collection',
+      'oneToMany',
+      'api::word-creation.word-creation'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1019,6 +1024,57 @@ export interface ApiWordCollectionWordCollection extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::word-collection.word-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWordCreationWordCreation extends Schema.CollectionType {
+  collectionName: 'word_creations';
+  info: {
+    singularName: 'word-creation';
+    pluralName: 'word-creations';
+    displayName: 'WordCreation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::word-creation.word-creation', 'name'> &
+      Attribute.Required;
+    meaning: Attribute.String & Attribute.Required;
+    ipa: Attribute.String;
+    examples: Attribute.Relation<
+      'api::word-creation.word-creation',
+      'oneToMany',
+      'api::example.example'
+    >;
+    description: Attribute.Text;
+    type: Attribute.Enumeration<
+      ['n', 'v', 'adj', 'adv', 'conj', 'pron', 'interj', 'prep']
+    > &
+      Attribute.Required;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    word_collection: Attribute.Relation<
+      'api::word-creation.word-creation',
+      'manyToOne',
+      'api::word-collection.word-collection'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::word-creation.word-creation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::word-creation.word-creation',
       'oneToOne',
       'admin::user'
     > &
@@ -1050,6 +1106,7 @@ declare module '@strapi/types' {
       'api::user-word.user-word': ApiUserWordUserWord;
       'api::word.word': ApiWordWord;
       'api::word-collection.word-collection': ApiWordCollectionWordCollection;
+      'api::word-creation.word-creation': ApiWordCreationWordCreation;
     }
   }
 }
