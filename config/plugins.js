@@ -1,9 +1,12 @@
 module.exports = () => ({
-    "entity-relationship-chart": {
+  "entity-relationship-chart": {
     enabled: true,
     config: {
       // By default all contentTypes and components are included.
       // To exlclude strapi's internal models, use:
+      "random-sort": {
+        enabled: true,
+      },
       exclude: [
         "strapi::core-store",
         "webhook",

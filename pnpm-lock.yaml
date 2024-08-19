@@ -35,6 +35,9 @@ importers:
       strapi-plugin-entity-relationship-chart:
         specifier: ^4.14.6
         version: 4.14.6(@babel/runtime@7.25.0)(@codemirror/autocomplete@6.18.0(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.30.0)(@lezer/common@1.2.1))(@codemirror/language@6.10.2)(@codemirror/lint@6.8.1)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.30.0)(@types/react@18.3.3)(codemirror@5.65.17)(react-dom@18.3.1(react@18.3.1))(react-router-dom@5.3.4(react@18.3.1))(react@18.3.1)(styled-components@5.3.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1))(typescript@5.2.2)
+      strapi-plugin-random-sort:
+        specifier: ^0.0.3
+        version: 0.0.3
       styled-components:
         specifier: 5.3.3
         version: 5.3.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)
@@ -5264,6 +5267,10 @@ packages:
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
       react-router-dom: ^5.3.4
+
+  strapi-plugin-random-sort@0.0.3:
+    resolution: {integrity: sha512-l++/dSvMzJtZVPnT+FJ6cV9W0C/UlfkoHDwb2xYCl1iSHaGndwrod7JrwQT1TINmR015d+TPAKll0JOry9Xy/Q==}
+    engines: {node: '>=12.x.x <=16.x.x', npm: '>=6.0.0'}
 
   stream-chain@2.2.5:
     resolution: {integrity: sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA==}
@@ -12148,6 +12155,8 @@ snapshots:
       - styled-components
       - supports-color
       - typescript
+
+  strapi-plugin-random-sort@0.0.3: {}
 
   stream-chain@2.2.5: {}
 

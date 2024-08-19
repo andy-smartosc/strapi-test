@@ -70,7 +70,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::word-collection.word-collection",
-      "inversedBy": "words"
+      "mappedBy": "words"
     }
   }
 }

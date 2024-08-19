@@ -42,6 +42,12 @@
         "se"
       ],
       "required": true
+    },
+    "word_creations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::word-creation.word-creation",
+      "mappedBy": "word_collection"
     }
   }
 }
